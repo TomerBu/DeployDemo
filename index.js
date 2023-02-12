@@ -3,10 +3,11 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  console.log(process.env.happy)
-  console.log(process.env.PORT)
-  console.log(process.env.SECRET);
-  res.json({message: 'all is good'})
+  res.json({message: {
+    happy: process.env.happy, 
+    PORT: process.env.PORT, 
+    SECRET: process.env.SECRET
+  }})
 })
 
 const PORT = process.env.PORT ?? 3000
